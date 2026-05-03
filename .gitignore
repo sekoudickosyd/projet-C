@@ -22,5 +22,11 @@ build/
 .vscode/
 .idea/
 
+# Node
+node_modules/
+dist/
+.pnp
+.pnp.js
+
 # Logs & data
 *.log
