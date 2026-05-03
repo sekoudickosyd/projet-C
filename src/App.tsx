@@ -1,4 +1,5 @@
 import { CsvDropzone } from './components/CsvDropzone';
+import { KpiBar } from './components/KpiBar';
 import { useDeals } from './context/DealsContext';
 
 function App() {
@@ -24,6 +25,8 @@ function App() {
           )}
 
           <CsvDropzone />
+
+          <KpiBar />
 
           {isLoaded && (
             <p className="text-sm text-gray-500">

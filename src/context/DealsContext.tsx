@@ -5,6 +5,8 @@ import type { Deal } from '../types/deal';
 interface DealsContextValue {
   deals: Deal[];
   isLoaded: boolean;
+  totalAmount: number;
+  dealsCount: number;
   setDeals: (deals: Deal[]) => void;
 }
 
@@ -19,9 +21,14 @@ export function DealsProvider({ children }: { children: ReactNode }) {
     setIsLoaded(true);
   };
 
+  const totalAmount = useMemo(
+    () => deals.reduce((sum, d) => sum + (d.amount ?? 0), 0),
+    [deals]
+  );
+
   const value = useMemo(
-    () => ({ deals, isLoaded, setDeals: handleSetDeals }),
-    [deals, isLoaded]
+    () => ({ deals, isLoaded, totalAmount, dealsCount: deals.length, setDeals: handleSetDeals }),
+    [deals, isLoaded, totalAmount]
   );
 
   return <DealsContext.Provider value={value}>{children}</DealsContext.Provider>;
