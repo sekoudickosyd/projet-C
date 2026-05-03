@@ -1,3 +1,6 @@
+# Claude Code — config locale uniquement
+.claude/settings.local.json
+
 # Environment variables — never commit these
 .env
 .env.*
